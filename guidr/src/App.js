@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import SignUpLogin from './component/SignUp_Login/SignUpLogin';
 import { BrowserRouter as Router } from "react-router-dom";
+import Container from './component/Container';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <SignUpLogin />
+        <Container />
       </Router>
     );
   }

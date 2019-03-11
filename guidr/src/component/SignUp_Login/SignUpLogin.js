@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Login from './Login/Login';
+import SignUp from './SignUp/SignUp';
 
 
 export default class SignUpLogin extends React.Component {
@@ -15,7 +16,7 @@ export default class SignUpLogin extends React.Component {
         return (
             <div>
                 <Route path='/login' render={() => <Login />} />
-                {/* <Route path='/sign-up' render={() => <SignUp />} /> */}
+                <Route path='/sign-up' render={() => <SignUp />} />
             </div>
         )
     }
