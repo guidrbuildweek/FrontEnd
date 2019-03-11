@@ -1,15 +1,43 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
-import Container from './component/Container';
+import Login from './component/Login/Login';
+import SignUp from './component/SignUp/SignUp';
+import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { login } from './component/actions/loginCreator';
+import { signUp } from './component/actions/signUp';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Container />
-      </Router>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Route exact path='/login' render={(props) => <Login {...props} />} />
+				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
+			</div>
+		);
+	}
 }
 
-export default App;
+function mapStateToProps(state) {
+	return {
+		user: state.user,
+		email: state.email,
+		age: state.age,
+		typeOfGuide: state.typeOfGuide,
+		password: state.password,
+		arrayOfTrips: state.arrayOfTrips
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(
+		{
+			login,
+			signUp
+		},
+		dispatch
+	);
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
