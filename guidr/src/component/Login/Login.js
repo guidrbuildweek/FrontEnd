@@ -35,7 +35,9 @@ export default class Login extends React.Component {
 					value={this.state.password}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledButton> Log in </StyledButton>
+				<StyledButton onClick={() => this.props.login({ password: this.state.password, username: this.state.user })}>
+					Log in
+				</StyledButton>
 				<div>
 					<Link to='/sign-up'> You don 't have an account ? Sign up here!</Link>
 				</div>

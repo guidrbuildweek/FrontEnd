@@ -1,10 +1,10 @@
-const initialState = {
-	user: 'bye'
-};
+import { combineReducers } from 'redux';
+import login from './loginReducer';
+import spinner from './spinnerReducer';
 
-export default function rootreducer(state = initialState, action) {
-	switch (action.type) {
-		default:
-			return state;
-	}
-}
+const rootReducer = combineReducers({
+	login,
+	spinner
+});
+
+export default rootReducer;

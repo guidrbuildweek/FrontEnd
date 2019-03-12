@@ -9,10 +9,10 @@ import * as types from './component/actions/actionTypes';
 import rootReducer from './component/reducers/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const customMiddlewareToSaveUserToke = (store) => (next) => (action) => {
+const customMiddlewareToSaveUserToken = (store) => (next) => (action) => {
 	console.log(store);
 	if (action.type === types.LOGIN_SUCCESS) {
-		localStorage.setItem('userToken', action.payload);
+		localStorage.setItem('token', action.payload);
 	}
 	next(action);
 };
@@ -20,7 +20,7 @@ const customMiddlewareToSaveUserToke = (store) => (next) => (action) => {
 const store = createStore(
 	rootReducer,
 	compose(
-		applyMiddleware(thunk, logger, customMiddlewareToSaveUserToke),
+		applyMiddleware(thunk, logger, customMiddlewareToSaveUserToken),
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	)
 );

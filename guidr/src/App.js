@@ -12,7 +12,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Route exact path='/login' render={(props) => <Login {...props} />} />
+				<Route exact path='/login' render={(props) => <Login {...props} login={this.props.login} />} />
 				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
 			</div>
 		);
