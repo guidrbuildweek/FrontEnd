@@ -1,3 +1,7 @@
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const SPINNER_ON = 'SPINNER_ON';
 export const SPINNER_OFF = 'SPINNER_OFF';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const CREATE_SUCCESS = 'CREATE_SUCCESS';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const EDIT_SUCCESS = 'EDIT_SUCCESS';

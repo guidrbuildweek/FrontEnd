@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { StyledForm } from '../StyledComponents/StyledForm';
 import { StyledInput } from '../StyledComponents/StyledInput';
 import { StyledButton } from '../StyledComponents/StyledButton';
@@ -18,7 +18,9 @@ export default class Login extends React.Component {
 		});
 	};
 	render() {
-		return (
+		return this.props.token ? (
+			<Redirect to='/trips' />
+		) : (
 			<StyledForm>
 				<h2> PLEASE LOG IN </h2>
 				<StyledInput
@@ -35,7 +37,9 @@ export default class Login extends React.Component {
 					value={this.state.password}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledButton onClick={() => this.props.login({ password: this.state.password, username: this.state.user })}>
+				<StyledButton
+					type='submit'
+					onClick={() => this.props.login({ password: this.state.password, username: this.state.user })}>
 					Log in
 				</StyledButton>
 				<div>

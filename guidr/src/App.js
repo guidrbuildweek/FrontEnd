@@ -7,13 +7,24 @@ import { login } from './component/actions/loginCreator';
 import { signUp } from './component/actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Trips from './component/TripsContainer/Trips';
+import PrivateRoute from './component/PrivateRoute';
+import spinner from './component/reducers/spinnerReducer';
 
 class App extends Component {
+	state = {
+		token: localStorage.getItem('token')
+	};
 	render() {
 		return (
 			<div>
-				<Route exact path='/login' render={(props) => <Login {...props} login={this.props.login} />} />
+				<Route
+					exact
+					path='/login'
+					render={(props) => <Login {...props} login={this.props.login} token={this.state.token} />}
+				/>
 				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
+				<PrivateRoute exact path='/trips' component={Trips} token={this.state.token} />
 			</div>
 		);
 	}
@@ -21,12 +32,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		user: state.user,
-		email: state.email,
-		age: state.age,
-		typeOfGuide: state.typeOfGuide,
-		password: state.password,
-		arrayOfTrips: state.arrayOfTrips
+		loggedIn: state.login.loggedIn,
+		token: state.login.token,
+		spinner: state.spinner
 	};
 }
 

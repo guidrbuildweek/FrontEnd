@@ -1,26 +1,39 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { fetchTrips } from '../actions/fetchTripCreator';
+import Trip from './Trip';
 
-export class Trips extends React.Component {
+class Trips extends React.Component {
 	componentDidMount() {
 		this.props.fetchTrips();
 	}
+	handleLogout = (location) => {
+		localStorage.clear();
+	};
 	render() {
-		return <div>Hello</div>;
+		return (
+			<div>
+				<button type='submit' onClick={() => this.handleLogout()}>
+					log out
+				</button>
+				{this.props.trips.map((trip) => <Trip trip={trip} />)}
+			</div>
+		);
 	}
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({ trips }) {
 	return {
-		trips: []
+		trips
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			fetchTrips,
-			deleteTrip,
-			editTrip
+			fetchTrips
 		},
 		dispatch
 	);

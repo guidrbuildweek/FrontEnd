@@ -18,5 +18,6 @@ export const login = (user) => (dispatch) => {
 	}).then((res) => {
 		dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
 		dispatch(spinnerOff);
+		console.log(res);
 	});
 };
