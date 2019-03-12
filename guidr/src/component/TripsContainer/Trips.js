@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchTrips } from '../actions/fetchTripCreator';
 import Trip from './Trip';
+import { deleteTrip } from '../actions/deleteTripCreator';
+import TripForm from './TripForm';
+import { addTrip } from '../actions/addTripCreator';
 
 class Trips extends React.Component {
 	componentDidMount() {
@@ -18,7 +21,8 @@ class Trips extends React.Component {
 				<button type='submit' onClick={() => this.handleLogout()}>
 					log out
 				</button>
-				{this.props.trips.map((trip, idx) => <Trip trip={trip} key={idx} />)}
+				{this.props.trips.map((trip, idx) => <Trip trip={trip} key={idx} deleteTrip={this.props.deleteTrip} />)}
+				<TripForm addTrip={this.props.addTrip} />
 			</div>
 		);
 	}
@@ -33,7 +37,9 @@ function mapStateToProps({ trips }) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			fetchTrips
+			fetchTrips,
+			deleteTrip,
+			addTrip
 		},
 		dispatch
 	);
