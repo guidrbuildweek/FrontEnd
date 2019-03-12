@@ -5,3 +5,5 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const CREATE_SUCCESS = 'CREATE_SUCCESS';
 export const DELETE_SUCCESS = 'DELETE_SUCCESS';
 export const EDIT_SUCCESS = 'EDIT_SUCCESS';
+
+export const FETCH_USERINFO = 'FETCH_USERINFO';

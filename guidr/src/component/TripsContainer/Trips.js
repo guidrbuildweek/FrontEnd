@@ -18,7 +18,7 @@ class Trips extends React.Component {
 				<button type='submit' onClick={() => this.handleLogout()}>
 					log out
 				</button>
-				{this.props.trips.map((trip) => <Trip trip={trip} />)}
+				{this.props.trips.map((trip, idx) => <Trip trip={trip} key={idx} />)}
 			</div>
 		);
 	}
