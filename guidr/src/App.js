@@ -11,12 +11,16 @@ import Trips from './component/TripsContainer/Trips';
 import Portfolio from './component/Portfolio';
 import PrivateRoute from './component/PrivateRoute';
 import spinner from './component/reducers/spinnerReducer';
+import MainPage from './component/MainPage';
 
 class App extends Component {
 	state = {
 		token: localStorage.getItem('token')
 	};
 	render() {
+		if (this.props.spinner) {
+			return <div>Loading...</div>;
+		}
 		return (
 			<div>
 				<Route
