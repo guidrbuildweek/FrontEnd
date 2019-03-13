@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default class Trip extends React.Component {
+	state = {
+		isEditing: false
+	};
 	render() {
 		return (
 			<div>

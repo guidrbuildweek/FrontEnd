@@ -1,5 +1,6 @@
 import React from 'react';
 import Trips from './TripsContainer/Trips';
+import Portfolio from './Portfolio';
 import { Route, NavLink } from 'react-router-dom';
 
 export default class MainPage extends React.Component {

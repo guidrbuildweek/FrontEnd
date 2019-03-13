@@ -8,6 +8,7 @@ import { signUp } from './component/actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Trips from './component/TripsContainer/Trips';
+import Portfolio from './component/Portfolio';
 import PrivateRoute from './component/PrivateRoute';
 import spinner from './component/reducers/spinnerReducer';
 
@@ -25,6 +26,7 @@ class App extends Component {
 				/>
 				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
 				<PrivateRoute exact path='/trips' component={Trips} token={this.state.token} />
+				<PrivateRoute exact path='/portfolio' component={Portfolio} token={this.state.token} />
 			</div>
 		);
 	}
