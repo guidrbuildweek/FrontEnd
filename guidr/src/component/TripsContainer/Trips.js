@@ -7,6 +7,7 @@ import Trip from './Trip';
 import { deleteTrip } from '../actions/deleteTripCreator';
 import TripForm from './TripForm';
 import { addTrip } from '../actions/addTripCreator';
+import { StyledTrips } from '../StyledComponents/StyledTrips';
 
 class Trips extends React.Component {
 	componentDidMount() {
@@ -17,13 +18,13 @@ class Trips extends React.Component {
 	};
 	render() {
 		return (
-			<div>
-				<button type='submit' onClick={() => this.handleLogout()}>
+			<StyledTrips>
+				<button type="submit" onClick={() => this.handleLogout()}>
 					log out
 				</button>
 				{this.props.trips.map((trip, idx) => <Trip trip={trip} key={idx} deleteTrip={this.props.deleteTrip} />)}
 				<TripForm addTrip={this.props.addTrip} />
-			</div>
+			</StyledTrips>
 		);
 	}
 }

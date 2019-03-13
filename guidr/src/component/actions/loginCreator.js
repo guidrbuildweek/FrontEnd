@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from './axios/axios';
 import * as types from './actionTypes';
 import { spinnerOn, spinnerOff } from './spinner';
 
@@ -8,14 +8,7 @@ export const login = (user) => (dispatch) => {
 		password: user.password
 	});
 	dispatch(spinnerOn);
-	axios({
-		method: 'POST',
-		url: 'https://guidr-be.herokuapp.com/login',
-		data,
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	}).then((res) => {
+	axios().post('https://guidr-be.herokuapp.com/login', data).then((res) => {
 		dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
 		dispatch(spinnerOff);
 	});

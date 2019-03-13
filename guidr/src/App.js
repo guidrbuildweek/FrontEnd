@@ -8,23 +8,28 @@ import { signUp } from './component/actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Trips from './component/TripsContainer/Trips';
+import Portfolio from './component/Portfolio';
 import PrivateRoute from './component/PrivateRoute';
 import spinner from './component/reducers/spinnerReducer';
+import MainPage from './component/MainPage';
 
 class App extends Component {
 	state = {
 		token: localStorage.getItem('token')
 	};
 	render() {
+		if (this.props.spinner) {
+			return <div>Loading...</div>;
+		}
 		return (
 			<div>
 				<Route
 					exact
-					path='/login'
+					path="/login"
 					render={(props) => <Login {...props} login={this.props.login} token={this.state.token} />}
 				/>
-				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
-				<PrivateRoute exact path='/trips' component={Trips} token={this.state.token} />
+				<Route exact path="/sign-up" render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
+				<PrivateRoute path="/" component={MainPage} token={this.state.token} />
 			</div>
 		);
 	}
