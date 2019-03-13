@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledForm } from '../StyledComponents/StyledForm';
 
 export default class TripForm extends React.Component {
 	state = {

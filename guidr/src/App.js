@@ -29,8 +29,7 @@ class App extends Component {
 					render={(props) => <Login {...props} login={this.props.login} token={this.state.token} />}
 				/>
 				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
-				<PrivateRoute exact path='/trips' component={Trips} token={this.state.token} />
-				<PrivateRoute exact path='/portfolio' component={Portfolio} token={this.state.token} />
+				<PrivateRoute path='/' component={MainPage} token={this.state.token} />
 			</div>
 		);
 	}

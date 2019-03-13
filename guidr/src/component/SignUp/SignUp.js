@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StyledButton } from '../StyledComponents/StyledButton';
 import { StyledForm } from '../StyledComponents/StyledForm';
 import { StyledInput } from '../StyledComponents/StyledInput';
+import { StyledLink } from '../StyledComponents/StyledLinkLogin';
 export default class Login extends React.Component {
 	state = {
 		name: '',

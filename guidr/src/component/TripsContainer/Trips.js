@@ -7,21 +7,21 @@ import Trip from './Trip';
 import { deleteTrip } from '../actions/deleteTripCreator';
 import TripForm from './TripForm';
 import { addTrip } from '../actions/addTripCreator';
+import { editTrip } from '../actions/editTripCreator';
+import { StyledTrips } from '../StyledComponents/StyledTrips';
 
 class Trips extends React.Component {
 	componentDidMount() {
 		this.props.fetchTrips();
 	}
-	handleLogout = (location) => {
-		localStorage.clear();
-	};
 	render() {
 		return (
 			<div>
-				<button type='submit' onClick={() => this.handleLogout()}>
-					log out
-				</button>
-				{this.props.trips.map((trip, idx) => <Trip trip={trip} key={idx} deleteTrip={this.props.deleteTrip} />)}
+				<StyledTrips>
+					{this.props.trips.map((trip, idx) => (
+						<Trip trip={trip} key={idx} deleteTrip={this.props.deleteTrip} editTrip={this.props.editTrip} />
+					))}
+				</StyledTrips>
 				<TripForm addTrip={this.props.addTrip} />
 			</div>
 		);
@@ -39,7 +39,8 @@ function mapDispatchToProps(dispatch) {
 		{
 			fetchTrips,
 			deleteTrip,
-			addTrip
+			addTrip,
+			editTrip
 		},
 		dispatch
 	);

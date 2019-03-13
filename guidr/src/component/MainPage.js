@@ -1,17 +1,29 @@
 import React from 'react';
 import Trips from './TripsContainer/Trips';
 import Portfolio from './Portfolio';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { StyledNavbar, StyledH1, StyledLinks, StyledNavLink } from './StyledComponents/StyledNavBar';
 
 export default class MainPage extends React.Component {
+	handleLogout = () => {
+		localStorage.clear();
+	};
 	render() {
 		return (
 			<div>
-				<NavLink to='/home'>Home</NavLink>
-				<NavLink to='/portfolio'>Portfolio</NavLink>
+				<StyledNavbar>
+					<StyledH1>Guidr</StyledH1>
+					<StyledLinks>
+						<StyledNavLink to='/'>HOME</StyledNavLink>
+						<StyledNavLink to='/portfolio'>PORTFOLIO</StyledNavLink>
+						<button type='submit' onClick={() => this.handleLogout()}>
+							log out
+						</button>
+					</StyledLinks>
+				</StyledNavbar>
 
-				<Route path='/home' render={(props) => <Trips {...props} />} />
-				<Route path='/portfolio' render={(props) => <Portfolio {...props} />} />
+				<Route exact path='/' render={(props) => <Trips {...props} />} />
+				<Route exact path='/portfolio' render={(props) => <Portfolio {...props} />} />
 			</div>
 		);
 	}
