@@ -7,8 +7,6 @@ import { login } from './component/actions/loginCreator';
 import { signUp } from './component/actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Trips from './component/TripsContainer/Trips';
-import Portfolio from './component/Portfolio';
 import PrivateRoute from './component/PrivateRoute';
 import spinner from './component/reducers/spinnerReducer';
 import MainPage from './component/MainPage';

@@ -37,4 +37,16 @@ export const StyledNavLink = styled(NavLink)`
     }
 `;
 
-// Font: <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+export const StyledLogout = styled.button`
+	font-family: Roboto, sans-serif;
+	padding: 5px 10px;
+	background-color: white;
+	border: 2px solid #ffce00;
+	font-size: 16px;
+	color: #ffce00;
+	text-decoration: none;
+	:hover {
+		color: black;
+		cursor: pointer;
+	}
+`;

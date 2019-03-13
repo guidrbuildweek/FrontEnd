@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledTrips = styled.div`
+	width: 80%;
 	max-width: 900px;
-	border: 1px solid black;
 	margin: 0 auto;
 	padding: 20px;
 	display: flex;

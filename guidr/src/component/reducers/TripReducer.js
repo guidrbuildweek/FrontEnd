@@ -1,5 +1,4 @@
 import * as types from '../actions/actionTypes';
-import { initialState } from './initialState';
 
 export default function trips(state = [], action) {
 	switch (action.type) {
@@ -9,6 +8,8 @@ export default function trips(state = [], action) {
 			return state.filter((trip) => trip.id !== action.payload);
 		case types.ADD_TRIP_SUCCESS:
 			return state.concat(action.payload);
+		case types.EDIT_TRIP_SUCCESS:
+			return state;
 		default:
 			return state;
 	}

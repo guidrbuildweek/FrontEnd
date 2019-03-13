@@ -8,7 +8,6 @@ export const StyledTrip = styled.div`
 	font-size: 1rem;
 	text-align: center;
 	box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-
 	:hover {
 		box-shadow: inset 0 0 0 3px #ffce00;
 	}
