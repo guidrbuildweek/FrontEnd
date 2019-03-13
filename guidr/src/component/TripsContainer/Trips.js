@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { fetchTrips } from '../actions/fetchTripCreator';
 import Trip from './Trip';
 import { deleteTrip } from '../actions/deleteTripCreator';
-import TripForm from './TripForm';
 import { addTrip } from '../actions/addTripCreator';
 import { editTrip } from '../actions/editTripCreator';
 import { StyledTrips } from '../StyledComponents/StyledTrips';
@@ -22,7 +21,6 @@ class Trips extends React.Component {
 						<Trip trip={trip} key={idx} deleteTrip={this.props.deleteTrip} editTrip={this.props.editTrip} />
 					))}
 				</StyledTrips>
-				<TripForm addTrip={this.props.addTrip} />
 			</div>
 		);
 	}

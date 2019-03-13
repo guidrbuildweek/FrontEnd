@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
 	padding: 2% 0%;
 	font-size: 1.25rem;
 	font-weight: 600;
-	margin-bottom: 2%;
+	margin: 0% auto 2% auto;
 	:hover {
 		transition: 500ms;
 		background: black;

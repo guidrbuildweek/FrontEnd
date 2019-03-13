@@ -5,7 +5,7 @@ export default function user(state = [], action) {
 		case types.FETCH_USERINFO:
 			return action.payload;
 		case types.EDIT_SUCCESS:
-			return action.payload;
+			return state;
 		default:
 			return state;
 	}
