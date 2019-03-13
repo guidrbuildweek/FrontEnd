@@ -2,7 +2,7 @@ import React from 'react';
 import Trips from './TripsContainer/Trips';
 import Portfolio from './Portfolio';
 import { Route } from 'react-router-dom';
-import { StyledNavbar, StyledH1, StyledLinks, StyledNavLink, StyledLogout } from './StyledComponents/StyledNavBar';
+import { StyledNavbar, StyledH1, StyledLinks, StyledNavLink, StyledLogout } from './StyledComponents/StyledNavbar';
 import TripForm from '../component/TripsContainer/TripForm';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,24 +20,30 @@ class MainPage extends React.Component {
 				<StyledNavbar>
 					<StyledH1>Guidr</StyledH1>
 					<StyledLinks>
-						<StyledNavLink to='/'>HOME</StyledNavLink>
-						<StyledNavLink to='/portfolio'>PORTFOLIO</StyledNavLink>
-						<StyledNavLink to='/add-Trip'>Add Trip</StyledNavLink>
-						<StyledLogout type='submit' onClick={() => this.handleLogout()}>
+						<StyledNavLink to="/">HOME</StyledNavLink>
+						<StyledNavLink to="/portfolio">PORTFOLIO</StyledNavLink>
+						<StyledNavLink to="/add-Trip">ADD TRIP</StyledNavLink>
+						<StyledLogout type="submit" onClick={() => this.handleLogout()}>
 							LOGOUT
 						</StyledLogout>
 					</StyledLinks>
 				</StyledNavbar>
 
-				<Route exact path='/' render={(props) => <Trips {...props} />} />
-				<Route exact path='/add-Trip' render={(props) => <TripForm {...props} addTrip={this.props.addTrip} />} />
-				<Route exact path='/portfolio' render={(props) => <Portfolio {...props} />} />
+				<Route exact path="/" render={(props) => <Trips {...props} />} />
+				<Route
+					exact
+					path="/add-Trip"
+					render={(props) => <TripForm {...props} addTrip={this.props.addTrip} />}
+				/>
+				<Route exact path="/portfolio" render={(props) => <Portfolio {...props} />} />
 				{this.props.trips.map((trip, idx) => (
 					<Route
 						exact
 						key={idx}
 						path={`/edit${trip.id}`}
-						render={(props) => <TripEditForm trip={trip} key={idx} editTrip={this.props.editTrip} {...props} />}
+						render={(props) => (
+							<TripEditForm trip={trip} key={idx} editTrip={this.props.editTrip} {...props} />
+						)}
 					/>
 				))}
 			</div>

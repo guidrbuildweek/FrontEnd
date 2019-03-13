@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledTrip, StyledTitle, StyledTripTypes, StyledPosted } from '../StyledComponents/StyledTrip';
 import { StyledTripB } from '../StyledComponents/StyledTripB';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export default class Trip extends React.Component {
 	state = {

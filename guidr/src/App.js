@@ -8,7 +8,7 @@ import { signUp } from './component/actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PrivateRoute from './component/PrivateRoute';
-import spinner from './component/reducers/spinnerReducer';
+// import spinner from './component/reducers/spinnerReducer';
 import MainPage from './component/MainPage';
 
 class App extends Component {
