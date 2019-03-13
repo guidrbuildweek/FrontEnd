@@ -70,7 +70,16 @@ class Portfolio extends React.Component {
 					<StyledAbout>About me:</StyledAbout>
 					<p> {this.props.user.tagline} </p>
 					<p> I've been a guide for {this.props.user.experience} years</p>
-					<StyledTripB onClick={() => this.setState((st) => ({ isEditing: !st.isEditing }))}>
+					<StyledTripB
+						onClick={() =>
+							this.setState({
+								isEditing: true,
+								name: this.props.user.name,
+								age: this.props.user.age,
+								tagline: this.props.user.tagline,
+								experience: this.props.user.experience
+							})}
+					>
 						Edit
 					</StyledTripB>
 				</StyledPText>
