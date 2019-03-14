@@ -6,5 +6,7 @@ export const signUp = (user) => (dispatch) => {
 	axios
 		.post('https://guidr-be.herokuapp.com/register', user)
 		.then((res) => console.log(res))
+		.then(window.history.replaceState('', '/login'))
+		.then(window.location.reload(true))
 		.catch((error) => console.log(error));
 };

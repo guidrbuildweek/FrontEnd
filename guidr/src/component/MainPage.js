@@ -15,6 +15,7 @@ import PortfolioEditForm from './PortfolioEditForm';
 class MainPage extends React.Component {
 	handleLogout = () => {
 		localStorage.clear();
+		window.location.reload(true);
 	};
 	render() {
 		return (
@@ -22,25 +23,21 @@ class MainPage extends React.Component {
 				<StyledNavbar>
 					<StyledH1>Guidr</StyledH1>
 					<StyledLinks>
-						<StyledNavLink to="/">HOME</StyledNavLink>
-						<StyledNavLink to="/portfolio">PORTFOLIO</StyledNavLink>
-						<StyledNavLink to="/add-Trip">ADD TRIP</StyledNavLink>
-						<StyledLogout type="submit" onClick={() => this.handleLogout()}>
+						<StyledNavLink to='/'>HOME</StyledNavLink>
+						<StyledNavLink to='/portfolio'>PORTFOLIO</StyledNavLink>
+						<StyledNavLink to='/add-Trip'>ADD TRIP</StyledNavLink>
+						<StyledLogout type='submit' onClick={() => this.handleLogout()}>
 							LOGOUT
 						</StyledLogout>
 					</StyledLinks>
 				</StyledNavbar>
 
-				<Route exact path="/" render={(props) => <Trips {...props} />} />
+				<Route exact path='/' render={(props) => <Trips {...props} />} />
+				<Route exact path='/add-Trip' render={(props) => <TripForm {...props} addTrip={this.props.addTrip} />} />
+				<Route exact path='/portfolio' render={(props) => <Portfolio {...props} />} />
 				<Route
 					exact
-					path="/add-Trip"
-					render={(props) => <TripForm {...props} addTrip={this.props.addTrip} />}
-				/>
-				<Route exact path="/portfolio" render={(props) => <Portfolio {...props} />} />
-				<Route
-					exact
-					path="/edit-profile"
+					path='/edit-profile'
 					render={(props) => <PortfolioEditForm editUser={this.props.editUser} {...props} />}
 				/>
 				{this.props.trips.map((trip, idx) => (
@@ -48,9 +45,7 @@ class MainPage extends React.Component {
 						exact
 						key={idx}
 						path={`/edit${trip.id}`}
-						render={(props) => (
-							<TripEditForm trip={trip} key={idx} editTrip={this.props.editTrip} {...props} />
-						)}
+						render={(props) => <TripEditForm trip={trip} key={idx} editTrip={this.props.editTrip} {...props} />}
 					/>
 				))}
 			</div>
