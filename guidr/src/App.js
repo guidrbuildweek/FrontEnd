@@ -49,6 +49,7 @@ function mapDispatchToProps(dispatch) {
 			signUp,
 			spinnerOff,
 			spinnerOn
+			// spinner
 		},
 		dispatch
 	);

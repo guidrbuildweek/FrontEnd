@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyledAddTripForm } from '../StyledComponents/StyledAddTripForm';
-import { StyledTripInput } from '../StyledComponents/StyledTripInput';
+import { StyledAddTripForm, StyledLabel, StyledTH2 } from '../StyledComponents/StyledAddTripForm';
+import { StyledInput } from '../StyledComponents/StyledInput';
 import { StyledSelect } from '../StyledComponents/StyledSelect';
 import { StyledButton } from '../StyledComponents/StyledButton';
 
@@ -24,50 +24,57 @@ export default class TripForm extends React.Component {
 	render() {
 		return (
 			<StyledAddTripForm>
-				<label>Male</label>
-				<StyledTripInput
-					placeholder="Trip Type"
-					type="text"
-					name="tripType"
+				<StyledTH2>Add your trip details</StyledTH2>
+				<StyledLabel>Type: </StyledLabel>
+				<StyledInput
+					placeholder='Trip Type'
+					type='text'
+					name='tripType'
 					value={this.state.tripType}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledTripInput
-					placeholder="Trip Name"
-					type="text"
-					name="tripName"
+				<StyledLabel>Name: </StyledLabel>
+				<StyledInput
+					placeholder='Trip Name'
+					type='text'
+					name='tripName'
 					value={this.state.tripName}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledTripInput
-					placeholder="Duration Start"
-					type="date"
-					name="durationStart"
+				<StyledLabel>Start Date: </StyledLabel>
+				<StyledInput
+					placeholder='Duration Start'
+					type='date'
+					name='durationStart'
 					value={this.state.durationStart}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledTripInput
-					placeholder="Duration End"
-					type="date"
-					name="durationEnd"
+				<StyledLabel>End Date: </StyledLabel>
+				<StyledInput
+					placeholder='Duration End'
+					type='date'
+					name='durationEnd'
 					value={this.state.durationEnd}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledSelect name="privPro" onClick={this.onChangeHandler}>
-					<option value="professional">Professional</option>
-					<option value="private">Private</option>
+				<StyledLabel>Prof. or private: </StyledLabel>
+				<StyledSelect name='privPro' onClick={this.onChangeHandler}>
+					<option value='professional'>Professional</option>
+					<option value='private'>Private</option>
 				</StyledSelect>
-				<StyledTripInput
-					placeholder="datePosted "
-					type="date"
-					name="datePosted"
+				<StyledLabel>Date Posted: </StyledLabel>
+				<StyledInput
+					placeholder='datePosted '
+					type='date'
+					name='datePosted'
 					value={this.state.datePosted}
 					onChange={this.onChangeHandler}
 				/>
-				<StyledTripInput
-					placeholder="location "
-					type="text"
-					name="location"
+				<StyledLabel>Location: </StyledLabel>
+				<StyledInput
+					placeholder='location '
+					type='text'
+					name='location'
 					value={this.state.location}
 					onChange={this.onChangeHandler}
 				/>
@@ -84,8 +91,7 @@ export default class TripForm extends React.Component {
 								datePosted: this.state.datePosted
 							},
 							event
-						)}
-				>
+						)}>
 					Add Trip
 				</StyledButton>
 			</StyledAddTripForm>

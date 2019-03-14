@@ -11,6 +11,7 @@ import { editTrip } from '../component/actions/editTripCreator';
 import { editUser } from '../component/actions/editUserCreator';
 import TripEditForm from '../component/TripsContainer/TripEditForm';
 import PortfolioEditForm from './PortfolioEditForm';
+import { stopEditing } from '../component/actions/EditingCreator';
 
 class MainPage extends React.Component {
 	handleLogout = () => {
@@ -25,7 +26,7 @@ class MainPage extends React.Component {
 					<StyledLinks>
 						<StyledNavLink to='/'>HOME</StyledNavLink>
 						<StyledNavLink to='/portfolio'>PORTFOLIO</StyledNavLink>
-						<StyledNavLink to='/add-Trip'>ADD TRIP</StyledNavLink>
+						<StyledNavLink to='/add-Trip'>ADD·TRIP</StyledNavLink>
 						<StyledLogout type='submit' onClick={() => this.handleLogout()}>
 							LOGOUT
 						</StyledLogout>
@@ -45,7 +46,15 @@ class MainPage extends React.Component {
 						exact
 						key={idx}
 						path={`/edit${trip.id}`}
-						render={(props) => <TripEditForm trip={trip} key={idx} editTrip={this.props.editTrip} {...props} />}
+						render={(props) => (
+							<TripEditForm
+								trip={trip}
+								key={idx}
+								editTrip={this.props.editTrip}
+								stopEditing={this.props.stopEditing}
+								{...props}
+							/>
+						)}
 					/>
 				))}
 			</div>
@@ -58,7 +67,8 @@ function mapDispatchToProps(dispatch) {
 		{
 			addTrip,
 			editTrip,
-			editUser
+			editUser,
+			stopEditing
 		},
 		dispatch
 	);

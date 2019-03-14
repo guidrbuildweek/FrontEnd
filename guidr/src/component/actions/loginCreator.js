@@ -10,7 +10,7 @@ export const login = (user) => (dispatch) => {
 	dispatch(spinnerOn);
 	axios({
 		method: 'POST',
-		url: 'https://guidr-be.herokuapp.com/login',
+		url: 'https://guidr-be1.herokuapp.com/login',
 		data,
 		headers: {
 			'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ export const fetchUser = () => (dispatch) => {
 	//	const token = localStorage.getItem('token');
 	dispatch(spinnerOn);
 	axios()
-		.get('https://guidr-be.herokuapp.com/profile/1')
+		.get('https://guidr-be1.herokuapp.com/profile/1')
 		.then((res) => {
 			dispatch({ type: types.FETCH_USERINFO, payload: res.data });
 			dispatch(spinnerOff);

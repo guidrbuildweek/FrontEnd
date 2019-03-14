@@ -2,15 +2,17 @@ import React from 'react';
 import { StyledTrip, StyledTitle, StyledTripTypes, StyledPosted } from '../StyledComponents/StyledTrip';
 import { StyledTripB } from '../StyledComponents/StyledTripB';
 import { Redirect } from 'react-router-dom';
+import { startEditing } from '../actions/EditingCreator';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-export default class Trip extends React.Component {
+class Trip extends React.Component {
 	state = {
-		isEditing: false,
 		id: this.props.trip.id
 	};
-
 	render() {
-		if (this.state.isEditing) {
+		if (this.props.isEditing) {
 			return <Redirect to={`/edit${this.state.id}`} />;
 		}
 		return (
@@ -23,17 +25,35 @@ export default class Trip extends React.Component {
 					<p>Location: {this.props.trip.location}</p>
 					<div>
 						<p>Dates:</p>
-						<p>{this.props.trip.durationStart}</p>
-						<p>{this.props.trip.durationEnd}</p>
+						<p>
+							{this.props.trip.durationStart} - {this.props.trip.durationEnd}
+						</p>
 					</div>
 
 					<StyledPosted>Posted: {this.props.trip.datePosted}</StyledPosted>
 				</div>
-				<StyledTripB type="submit" onClick={() => this.props.deleteTrip(this.props.trip.id)}>
+				<StyledTripB type='submit' onClick={() => this.props.deleteTrip(this.props.trip.id)}>
 					Delete this trip
 				</StyledTripB>
-				<StyledTripB onClick={() => this.setState((st) => ({ isEditing: !st.isEditing }))}>Edit</StyledTripB>
+				<StyledTripB onClick={() => this.props.startEditing()}>Edit</StyledTripB>
 			</StyledTrip>
 		);
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		isEditing: state.editing
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(
+		{
+			startEditing
+		},
+		dispatch
+	);
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Trip));
