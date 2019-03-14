@@ -15,7 +15,8 @@ class Portfolio extends React.Component {
 		name: this.props.user.name,
 		age: this.props.user.age,
 		tagline: this.props.user.tagline,
-		experience: this.props.user.experience
+		experience: this.props.user.experience,
+		id: this.props.user.id
 	};
 
 	componentDidMount() {
@@ -47,14 +48,18 @@ class Portfolio extends React.Component {
 						onChange={this.onChangeHandler}
 					/>
 					<StyledTripB
-						onClick={() =>
+						onClick={() => {
+							console.log('props to edit', this.props);
+							console.log('props to edit', this.state);
+
 							this.props.editUser({
-								name: this.props.user.name,
-								age: this.props.user.age,
-								tagline: this.props.user.tagline,
-								experience: this.props.user.experience,
+								name: this.state.name,
+								age: this.state.age,
+								tagline: this.state.tagline,
+								experience: this.state.experience,
 								id: this.props.user.id
-							})}
+							});
+						}}
 					>
 						Submit
 					</StyledTripB>

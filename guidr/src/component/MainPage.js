@@ -8,7 +8,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addTrip } from '../component/actions/addTripCreator';
 import { editTrip } from '../component/actions/editTripCreator';
+import { editUser } from '../component/actions/editUserCreator';
 import TripEditForm from '../component/TripsContainer/TripEditForm';
+import PortfolioEditForm from './PortfolioEditForm';
 
 class MainPage extends React.Component {
 	handleLogout = () => {
@@ -36,6 +38,11 @@ class MainPage extends React.Component {
 					render={(props) => <TripForm {...props} addTrip={this.props.addTrip} />}
 				/>
 				<Route exact path="/portfolio" render={(props) => <Portfolio {...props} />} />
+				<Route
+					exact
+					path="/edit-profile"
+					render={(props) => <PortfolioEditForm editUser={this.props.editUser} {...props} />}
+				/>
 				{this.props.trips.map((trip, idx) => (
 					<Route
 						exact
@@ -55,7 +62,8 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
 			addTrip,
-			editTrip
+			editTrip,
+			editUser
 		},
 		dispatch
 	);
