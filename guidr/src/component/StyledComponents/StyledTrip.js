@@ -20,6 +20,9 @@ export const StyledTitle = styled.p`
 	font-size: 1.2rem;
 `;
 
-export const StyledTripTypes = styled.div`font-size: 0.7rem;`;
+export const StyledTripTypes = styled.div`font-size: 0.9rem;`;
 
-export const StyledPosted = styled.p`font-size: 0.8rem;`;
+export const StyledPosted = styled.p`
+	font-size: 0.7rem;
+	padding-top: 5px;
+`;

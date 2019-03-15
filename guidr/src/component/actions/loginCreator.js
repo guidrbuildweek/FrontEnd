@@ -10,13 +10,14 @@ export const login = (user) => (dispatch) => {
 	dispatch(spinnerOn);
 	axios({
 		method: 'POST',
-		url: 'https://guidr-be.herokuapp.com/login',
+		url: 'https://guidr-be1.herokuapp.com/login',
 		data,
 		headers: {
 			'Content-Type': 'application/json'
 		}
 	}).then((res) => {
 		dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
+		window.location.reload(true);
 		dispatch(spinnerOff);
 	});
 };

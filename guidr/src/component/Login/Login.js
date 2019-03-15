@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { StyledForm } from '../StyledComponents/StyledForm';
 import { StyledInput } from '../StyledComponents/StyledInput';
 import { StyledButton } from '../StyledComponents/StyledButton';
+import { StyledTH2 } from '../StyledComponents/StyledAddTripForm';
+import { StyledLink } from '../StyledComponents/StyledLink';
 
 export default class Login extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			password: '',
-			user: ''
+			user: '',
+			name: ''
 		};
 	}
 	onChangeHandler = (event) => {
@@ -19,32 +22,42 @@ export default class Login extends React.Component {
 	};
 	render() {
 		return this.props.token ? (
-			<Redirect to="/" />
+			<Redirect to='/' />
 		) : (
 			<StyledForm>
-				<h2> PLEASE LOG IN </h2>
+				<StyledTH2> Please Log In </StyledTH2>
 				<StyledInput
-					placeholder="Name..."
-					type="text"
-					name="user"
+					placeholder='Username...'
+					type='text'
+					name='user'
 					value={this.state.user}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledInput
-					placeholder="Password"
-					type="password"
-					name="password"
+					placeholder='Name'
+					type='text'
+					name='name'
+					value={this.state.name}
+					onChange={this.onChangeHandler}
+				/>
+				<StyledInput
+					placeholder='Password'
+					type='password'
+					name='password'
 					value={this.state.password}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledButton
-					type="submit"
-					onClick={() => this.props.login({ password: this.state.password, username: this.state.user })}
-				>
+					type='submit'
+					onClick={(location) =>
+						this.props.login(
+							{ password: this.state.password, username: this.state.user, name: this.state.name },
+							location
+						)}>
 					Log in
 				</StyledButton>
 				<div>
-					<Link to="/sign-up"> You don 't have an account ? Sign up here!</Link>
+					<StyledLink to='/sign-up'> You don 't have an account ? Sign up here!</StyledLink>
 				</div>
 			</StyledForm>
 		);

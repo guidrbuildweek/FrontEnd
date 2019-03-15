@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { login } from './component/actions/loginCreator';
 import { signUp } from './component/actions/signUp';
+import { spinnerOn, spinnerOff } from './component/actions/spinner';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PrivateRoute from './component/PrivateRoute';
@@ -23,11 +24,11 @@ class App extends Component {
 			<div>
 				<Route
 					exact
-					path="/login"
+					path='/login'
 					render={(props) => <Login {...props} login={this.props.login} token={this.state.token} />}
 				/>
-				<Route exact path="/sign-up" render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
-				<PrivateRoute path="/" component={MainPage} token={this.state.token} />
+				<Route exact path='/sign-up' render={(props) => <SignUp {...props} signUp={this.props.signUp} />} />
+				<PrivateRoute path='/' component={MainPage} token={this.state.token} />
 			</div>
 		);
 	}
@@ -45,7 +46,10 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
 			login,
-			signUp
+			signUp,
+			spinnerOff,
+			spinnerOn
+			// spinner
 		},
 		dispatch
 	);

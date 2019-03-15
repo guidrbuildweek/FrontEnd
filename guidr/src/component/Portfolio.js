@@ -6,8 +6,16 @@ import { bindActionCreators } from 'redux';
 import { editUser } from './actions/editUserCreator';
 import { StyledPortfolioForm } from './StyledComponents/StyledPortfolioForm';
 import { StyledInput } from './StyledComponents/StyledInput';
-import { StyledPortfolio, StyledPText, StyledAbout, StyledImg } from './StyledComponents/StyledPortfolio';
+import { StyledButton } from './StyledComponents/StyledButton';
+import {
+	StyledPortfolio,
+	StyledPText,
+	StyledAbout,
+	StyledImg,
+	StyledIContainer
+} from './StyledComponents/StyledPortfolio';
 import { StyledTripB } from './StyledComponents/StyledTripB';
+import { StyledAddTripForm, StyledLabel, StyledTH2 } from './StyledComponents/StyledAddTripForm';
 
 class Portfolio extends React.Component {
 	state = {
@@ -33,21 +41,16 @@ class Portfolio extends React.Component {
 		if (this.state.isEditing) {
 			return (
 				<StyledPortfolioForm>
-					<StyledInput value={this.state.name} type="text" name="name" onChange={this.onChangeHandler} />
-					<StyledInput value={this.state.age} type="number" name="age" onChange={this.onChangeHandler} />
-					<StyledInput
-						value={this.state.tagline}
-						type="text"
-						name="tagline"
-						onChange={this.onChangeHandler}
-					/>
-					<StyledInput
-						value={this.state.experience}
-						type="number"
-						name="experience"
-						onChange={this.onChangeHandler}
-					/>
-					<StyledTripB
+					<StyledTH2>Edit your profile</StyledTH2>
+					<StyledLabel>Name: </StyledLabel>
+					<StyledInput value={this.state.name} type='text' name='name' onChange={this.onChangeHandler} />
+					<StyledLabel>Age: </StyledLabel>
+					<StyledInput value={this.state.age} type='number' name='age' onChange={this.onChangeHandler} />
+					<StyledLabel>Your tagline: </StyledLabel>
+					<StyledInput value={this.state.tagline} type='text' name='tagline' onChange={this.onChangeHandler} />
+					<StyledLabel>Years of experience: </StyledLabel>
+					<StyledInput value={this.state.experience} type='number' name='experience' onChange={this.onChangeHandler} />
+					<StyledButton
 						onClick={() => {
 							console.log('props to edit', this.props);
 							console.log('props to edit', this.state);
@@ -59,10 +62,9 @@ class Portfolio extends React.Component {
 								experience: this.state.experience,
 								id: this.props.user.id
 							});
-						}}
-					>
+						}}>
 						Submit
-					</StyledTripB>
+					</StyledButton>
 				</StyledPortfolioForm>
 			);
 		}
@@ -83,12 +85,13 @@ class Portfolio extends React.Component {
 								age: this.props.user.age,
 								tagline: this.props.user.tagline,
 								experience: this.props.user.experience
-							})}
-					>
+							})}>
 						Edit
 					</StyledTripB>
 				</StyledPText>
-				<StyledImg src="https://bit.ly/2HxMTDt" alt="Susana" />
+				<StyledIContainer>
+					<StyledImg src='https://bit.ly/2HxMTDt' alt='Susana' />
+				</StyledIContainer>
 			</StyledPortfolio>
 		);
 	}

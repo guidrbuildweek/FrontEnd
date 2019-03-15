@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledSelect = styled.select`
-	padding: 1% 0%;
-	width: 80%;
-	margin: 0 auto;
+	padding: 1%;
+	max-width: 470px;
+	width: 60%;
+	margin: 2% auto;
 `;
