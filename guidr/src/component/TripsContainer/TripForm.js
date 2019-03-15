@@ -27,54 +27,54 @@ export default class TripForm extends React.Component {
 				<StyledTH2>Add your trip details</StyledTH2>
 				<StyledLabel>Type: </StyledLabel>
 				<StyledInput
-					placeholder='Trip Type'
-					type='text'
-					name='tripType'
+					placeholder="Trip Type"
+					type="text"
+					name="tripType"
 					value={this.state.tripType}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledLabel>Name: </StyledLabel>
 				<StyledInput
-					placeholder='Trip Name'
-					type='text'
-					name='tripName'
+					placeholder="Trip Name"
+					type="text"
+					name="tripName"
 					value={this.state.tripName}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledLabel>Start Date: </StyledLabel>
 				<StyledInput
-					placeholder='Duration Start'
-					type='date'
-					name='durationStart'
+					placeholder="Duration Start"
+					type="date"
+					name="durationStart"
 					value={this.state.durationStart}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledLabel>End Date: </StyledLabel>
 				<StyledInput
-					placeholder='Duration End'
-					type='date'
-					name='durationEnd'
+					placeholder="Duration End"
+					type="date"
+					name="durationEnd"
 					value={this.state.durationEnd}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledLabel>Prof. or private: </StyledLabel>
-				<StyledSelect name='privPro' onClick={this.onChangeHandler}>
-					<option value='professional'>Professional</option>
-					<option value='private'>Private</option>
+				<StyledSelect name="privPro" onClick={this.onChangeHandler}>
+					<option value="professional">Professional</option>
+					<option value="private">Private</option>
 				</StyledSelect>
 				<StyledLabel>Date Posted: </StyledLabel>
 				<StyledInput
-					placeholder='datePosted '
-					type='date'
-					name='datePosted'
+					placeholder="datePosted "
+					type="date"
+					name="datePosted"
 					value={this.state.datePosted}
 					onChange={this.onChangeHandler}
 				/>
 				<StyledLabel>Location: </StyledLabel>
 				<StyledInput
-					placeholder='location '
-					type='text'
-					name='location'
+					placeholder="location "
+					type="text"
+					name="location"
 					value={this.state.location}
 					onChange={this.onChangeHandler}
 				/>
@@ -91,7 +91,8 @@ export default class TripForm extends React.Component {
 								datePosted: this.state.datePosted
 							},
 							event
-						)}>
+						)}
+				>
 					Add Trip
 				</StyledButton>
 			</StyledAddTripForm>

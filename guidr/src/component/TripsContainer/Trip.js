@@ -32,7 +32,7 @@ class Trip extends React.Component {
 
 					<StyledPosted>Posted: {this.props.trip.datePosted}</StyledPosted>
 				</div>
-				<StyledTripB type='submit' onClick={() => this.props.deleteTrip(this.props.trip.id)}>
+				<StyledTripB type="submit" onClick={() => this.props.deleteTrip(this.props.trip.id)}>
 					Delete this trip
 				</StyledTripB>
 				<StyledTripB onClick={() => this.props.startEditing()}>Edit</StyledTripB>

@@ -9,7 +9,6 @@ export const StyledNavbar = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-
 	padding-bottom: 20px;
 	@media (max-width: 700px) {
 		flex-wrap: wrap;
@@ -33,7 +32,6 @@ export const StyledLinks = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
 	@media (max-width: 700px) {
 		font-size: 0.8rem;
 	}
